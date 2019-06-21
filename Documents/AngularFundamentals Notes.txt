@@ -1,0 +1,131 @@
+Cource Overview
+=======================
+Archiecture
+Angular Components
+Reusable services
+Forms and validation
+API Calls
+Unit test
+Package everything together
+
+
+Getting Started With Angular
+=====================================
+
+Introduction 
+------------------
+
+Helpful Prerequesites
+ - Basic Node and NPM
+ - ES2015
+ - Typescript
+ 
+ Practice Exercise
+ ---------------------
+ https://jcoop.io/angular-practice-exercises/
+ 
+ plunker -> online editor, server and browser
+ 
+ Introduction to Typescrpt
+ ---------------------------------
+ superset of JS
+ Features 
+ - static typing 
+	in javascript 
+	let name 
+	let age
+	let birthDate
+	
+	in Typescript
+	let name: string
+	let age: number
+	let birthDate: date
+	
+- Typescript Interfaces
+	interface ICat{
+		name: string
+		age?: number
+	}
+	let fluffy: ICat
+	
+	fluffy = {
+		name: 'Fluffy'
+	}
+	
+- Typescript Class Properties
+	class Cat{
+	   name
+	   color
+		constructor( name ){
+			this.name = name;
+		}
+	}
+	
+- Public and Private Accessibility
+class Cat{
+	  
+		constructor( private name, private color ){
+			
+		}
+		speak(){console.log('my name is :'+ this.name)}
+	}
+	
+	
+Comparing Angular to AngularJS
+-----------------------------------------
+
+A conceptual overview of Angular
+---------------------------------
+root is loded
+router matches the component
+component is loaded 
+might have multiple component
+
+compoment, service, directive or pipe you register within the module 
+
+
+what we'll be building in this cource
+---------------------------------------------
+Event logger 
+
+Installing Git and node
+-----------------------------
+
+
+Getting Started with the angular
+--------------------------------
+https://github.com/jmcooper/angular-fundamentals-files
+ng new ng-fundamentals
+
+A brief look at the app Module
+-----------------------------------
+declarations -> whe we want to add new components
+
+Imports -> Import other modules
+
+
+providers -> services go here
+
+Accessing Static Files
+----------------------------------
+
+any file will go to asset folder and can be used as <img src="/assets/images/basic-shield.png"/>
+this is relative to index.html
+
+installed this package to go along with the course, seems like hibrid of bootstrap 
+npm install ngf-bootstrap --save
+
+added this in angular.json
+   "styles": [
+              "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+			
+			
+Creating and Communicating Between Angular Components
+===================================================================
+
