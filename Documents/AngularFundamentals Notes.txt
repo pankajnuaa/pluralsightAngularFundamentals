@@ -129,3 +129,124 @@ added this in angular.json
 Creating and Communicating Between Angular Components
 ===================================================================
 
+Introduction 
+---------------------
+Agenda 
+ Inline Templates and Data-Binding
+ Using External Templates
+ Inter-Component Communication
+ Styling Components
+ Style Encapsulation
+ 
+ 
+ Using External Templates
+ --------------------------
+ Basically how to create a new component 
+ 
+ 
+ Communicating with child component
+ --------------------------------------
+ this is the way to pass data 
+ passing from hmtl 
+ event1 -> this is the object we are passing
+ event inside [] -> this is the variable name that it will be available in 
+ <event-thumbnail [event] ="event1"></event-thumbnail>
+ 
+ passing to event-thumbnail
+  @Input() event: any;
+  
+ Communicating with parent component
+ -------------------------------------------
+from child 
+
+<button class="btn btn-primary" (click)="handleClickMe()" >Click me!</button>
+  @Output() eventClick = new EventEmitter();
+
+handleClickMe() {
+    this.eventClick.emit(this.event.name);
+  }
+  
+In Parent 
+//(eventClick)='handleEventClicked($event)'
+<event-thumbnail (eventClick)='handleEventClicked($event)'
+              [event] ="event1"></event-thumbnail>
+              </div>`,
+ handleEventClicked(data) {
+    console.log(data);
+  }
+
+Using Temporary variable to interact with child component
+-------------------------------------------------------------
+
+there is a way parent component can access data and method from child component. We do this by adding #variable in html where child component is defined <event-thumbnail #thumbnail </event-thumbnail>
+
+In child 
+myString = 'MyString from child';
+
+ logfoo() {
+    console.log('foo from child');
+  }
+  
+In parent 
+<event-thumbnail #thumbnail </event-thumbnail>
+<button class="btn btn-primary" (click) = "thumbnail.logfoo()"></button>
+              <h2>{{thumbnail.myString}}</h2>
+
+Styling Components
+-------------------------------------
+
+
+Exploring Angular's CSS Encapsulation
+-------------------------------------------
+css are very specific for modules
+
+style.css will effect in global level
+
+Adding a Site Header 
+-----------------------
+
+
+
+Exploring the Angular Template Syntax 
+============================================================
+Introduction
+------------------
+agends 
+- Interpolation and Expression
+- Event Bindings and Statements
+- Repeating Data with *ngFor
+- Removing Elements with *ngIf and *ng Switch 
+-Hiding ElementsAdding class and styles
+
+Exploring the Angular Template Syntax
+-----------------------------------------
+Interpolation Expression events and statement
+eg. 
+template": `
+			<h2>{{user.name}}</h2>   --> this is interpolation ,here expression is in {{}}
+			<img [src] = "user.imageURL">  --> property binding , here expression is in ""
+			`
+			
+	user = {name: 'John Doe', imageUrl: 'doe.com/profile.jpg'}
+	
+	
+	
+Expression restriction 
+ -> suse assignments
+ -> new keyword
+ -> expression chaining
+->  Global namespace
+
+Expression Recommendations
+-> No Side-Effects
+-> Fast
+-> Simple
+-> Idempotent  each time we call experssion it should have same result. 
+
+EventBindings and Statements
+--------------------------------------
+<button <click> = "doSomething()"></button>  --> Here click is event that binds to statement "doSomething()"
+
+doSomething(){
+
+}
