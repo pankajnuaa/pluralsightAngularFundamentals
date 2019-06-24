@@ -301,3 +301,75 @@ styling components with ngclass
 styling components with ngstyle
 ------------------------------------
 
+
+
+Creating Reusable Angular Services
+===========================================
+
+
+Why we need Service and Dependency Injection 
+-------------------------------------------
+
+Creating your First Service 
+---------------------------------
+Basically we careated the service and injected in in the component 
+For any service it needs to be registered   providers: [EventService],
+
+Wrapping Third Party Services
+-----------------------------------
+we'll use a library called toster 
+npm install toastr --save
+
+
+Then we careated a toastrService and injected that in the component
+
+Routing and Navigating Pages
+============================================================
+
+Adding Multiple Pages to your app
+----------------------------------------
+
+
+Adding your first Route
+-------------------------------
+
+
+Accessing Route Parameters
+--------------------------------------
+
+Linking to Routes
+---------------------------
+
+
+Navigating from Code
+------------------------------
+
+
+Guarding Against Route Activation
+------------------------------------
+
+
+Garding Against Route De-actions
+----------------------------------
+
+
+Garding Against Route De-activation
+-----------------------------------
+
+Pre-loading Data for Components
+-------------------------------------
+
+
+Styling Active Links
+-------------------------------------
+
+
+Lazily Loading Feature Modules
+-----------------------------------
+
+Organizing your Exports with Barrels
+---------------------------------------
+
+
+Collection Data with Angular Forms and Validation 
+========================================================
