@@ -250,3 +250,54 @@ EventBindings and Statements
 doSomething(){
 
 }
+
+Repeating Data with ngFor
+----------------------------------
+*ngFor="let event of events"  -> * is structural, i.e. they change DOM
+
+Handling Null Values with the safe-navigation Operator
+---------------------------------------------------------
+parent
+<event-thumbnail
+
+              [event] ="ourevent"></event-thumbnail>
+child
+ <h2>{{event.name}}</h2>
+ 
+ if this event.name is null, then it will error out
+ one way to resolve this is 
+ <h2>{{event?.name}}</h2> ==> use this question mark 
+
+
+
+Hiding and showing content with ngIf
+-----------------------------------------
+  <div *ngIf = "event?.onlineUrl">
+  Online URL: {{event?.onlineUrl}}
+  </div>
+  
+  This completely removes this html form the dom 
+
+
+Hiding content with the [Hidden] binding
+----------------------------------------------
+ <div [hidden]="!event?.onlineUrl">
+  Online URL: {{event?.onlineUrl}}
+  </div>
+  
+  now, this html is only hidden
+
+
+Hiding and showing content with ngswitch 
+-----------------------------------------------
+
+
+
+styling components with ngclass
+-----------------------------------------
+
+
+
+styling components with ngstyle
+------------------------------------
+

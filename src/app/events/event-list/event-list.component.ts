@@ -247,11 +247,7 @@ export class EventListComponents implements OnInit {
       time: '8:00 am',
       price: 800.00,
       imageUrl: '/assets/images/basic-shield.png',
-      location: {
-        address: 'The UN Angular Center',
-        city: 'New York',
-        country: 'USA'
-      },
+      onlineUrl: 'www.unangular.io',
       sessions: [
         {
           id: 1,
