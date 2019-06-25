@@ -325,9 +325,16 @@ Then we careated a toastrService and injected that in the component
 
 Routing and Navigating Pages
 ============================================================
+agenda
+Why Routhing is NEcessary
+Define Routing for PagesLink to RoutesNavigate from Code
+Route Guards 
+Resolve
+Route-Based Link Stying
 
 Adding Multiple Pages to your app
 ----------------------------------------
+
 
 
 Adding your first Route
@@ -339,12 +346,30 @@ Accessing Route Parameters
 
 Linking to Routes
 ---------------------------
+import { ActivatedRoute } from '@angular/router';
+
+  constructor(private eventService: EventService, private route: ActivatedRoute) {
+
+  }
+
+  ngOnInit() {
+    this.event = this.eventService.getEvent
+      (+this.route.snapshot.params.id);
+  }
+  
+Basically wer are injecting ActivatedRoute, then passing the route in getEvent as number, The id should be the same as in routes.ts 
 
 
 Navigating from Code
 ------------------------------
+from thubnail.component.ts 
+  <div [routerLink]="['/events',event.id]" class='well hoverwell thumbnail'> 
+  
+  This will link thubnail to the respective detail page
 
-
+in navguar.html  
+ <a [routerLink]="['/events']">All Events</a>
+This will routhe All events to events page
 Guarding Against Route Activation
 ------------------------------------
 
