@@ -346,6 +346,7 @@ Accessing Route Parameters
 
 Linking to Routes
 ---------------------------
+` typescript
 import { ActivatedRoute } from '@angular/router';
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {
@@ -356,6 +357,7 @@ import { ActivatedRoute } from '@angular/router';
     this.event = this.eventService.getEvent
       (+this.route.snapshot.params.id);
   }
+  `
   
 Basically wer are injecting ActivatedRoute, then passing the route in getEvent as number, The id should be the same as in routes.ts 
 
@@ -368,7 +370,9 @@ from thubnail.component.ts
   This will link thubnail to the respective detail page
 
 in navguar.html  
+` html
  <a [routerLink]="['/events']">All Events</a>
+ `
 This will routhe All events to events page
 Guarding Against Route Activation
 ------------------------------------
