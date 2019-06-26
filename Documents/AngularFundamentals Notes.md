@@ -377,28 +377,136 @@ This will routhe All events to events page
 Guarding Against Route Activation
 ------------------------------------
 
-
-Garding Against Route De-actions
-----------------------------------
+we created rout guard , EventRouteActivator service. It sees if the page exist. 
+Then we add that in the route.ts 
+  {
+    path: 'events/:id', component: EventDetailsComponent,
+    canActivate: [EventRouteActivator]
+  },
 
 
 Garding Against Route De-activation
 -----------------------------------
+warns the user user before saving the page
+basically we are adding  can deactive in rout
+ {
+    path: 'events/new', component: CreateEventComponent,
+    canDeactivate: ['canDeactivateCreateEvent']
+  },
+  
+  then we map canDeactivateCreateEvent to a method in app.module.ts
+   providers: [
+    EventService,
+    ToastrSrvice,
+    EventRouteActivator,
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
+    }
+
+  ],
+  
+  and we'll create a function checkDirtyState
+  export function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty) {
+    return window.confirm('you have not saed this event, do you really want to exit');
+  }
+  return true;
+}
 
 Pre-loading Data for Components
 -------------------------------------
+1st we make getting data async with observable, 
+ getEvents() {
+    const subject = new Subject();
+    setTimeout(() => {
+      subject.next(EVENTS); subject.complete();
+    },
+      2000);
+    return subject;
+  }
+  
+  ngOnInit() {
+    this.eventService.getEvents().subscribe(events => { this.events = events; });
+  }
+  
+  we created new file 
+  @Injectable()
+export class EventListResolver implements Resolve<any> {
 
+  constructor(private eventService: EventService) { }
+  resolve() {
+    return this.eventService.getEvents().pipe(map(events => events));
+  }
+}
+
+then we map that in route
+{ path: 'events', component: EventListComponents, resolve: { events: EventListResolver } },
+
+then we replace the getEvents to routhe.snapshot.data.events.
+ ngOnInit() {
+    // this.eventService.getEvents().subscribe(events => { this.events = events; });
+    this.events = this.route.snapshot.data.events; // this events match with events in the route
+  }
 
 Styling Active Links
 -------------------------------------
-
+we used 
+ routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact:true}"
+			 
+for styling active links
 
 Lazily Loading Feature Modules
 -----------------------------------
 
 Organizing your Exports with Barrels
 ---------------------------------------
+Creating the barrols
 
 
 Collection Data with Angular Forms and Validation 
 ========================================================
+
+Agenda
+Using Data Models for Type Safety
+Template-based Forms
+Model-driven Forms
+Two-way Data Bindings
+Custom Validators
+
+Using Models for Type Safety
+---------------------------------
+Created a model with types and replace it everywhere witht he type of object
+
+Creating your first Template-based Forms
+-----------------------------------------------
+
+Using the Data from your template-based Forms
+-------------------------------------------------
+
+Validating Template-based Forms
+----------------------------------------
+
+Creating yuour first Reactive Forms
+------------------------------------
+
+Validating Reactive Forms
+--------------------------------
+
+Using Multople Validators in Ractive Forms
+-----------------------------------------------
+
+
+Diving Deeper into Template-based Forms
+----------------------------------------------
+
+Editing Data with Two-way Bindings
+---------------------------------------
+
+Diving Deeper into Reactive Forms
+--------------------------------------
+
+
+Creating Custome Validators
+-----------------------------------
