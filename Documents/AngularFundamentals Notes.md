@@ -481,14 +481,21 @@ Created a model with types and replace it everywhere witht he type of object
 
 Creating your first Template-based Forms
 -----------------------------------------------
+Template based and model based (reac tive)
+
+Template based are easy but has limitation, lots of js code in html 
+model based, lots of logic in component
+
+Basically in this video we created a new login page, passed in login info from html to component using ngform , ngmodel and ngsubmit
 
 Using the Data from your template-based Forms
 -------------------------------------------------
+Create auth service and made login user 
 
 Validating Template-based Forms
 ----------------------------------------
 
-Creating yuour first Reactive Forms
+Creating your first Reactive Forms
 ------------------------------------
 
 Validating Reactive Forms
