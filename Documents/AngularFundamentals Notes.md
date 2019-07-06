@@ -495,11 +495,54 @@ Create auth service and made login user
 Validating Template-based Forms
 ----------------------------------------
 
+
 Creating your first Reactive Forms
 ------------------------------------
 
+created a new form 
+
+used [formGroup]= 
+formControlName="lastName"
+
+
+then used 
+profileForm: FormGroup;
+
+  ngOnInit() {
+    const firstName = new FormControl(this.authService.currentUser.firstName);
+    const lastName = new FormControl(this.authService.currentUser.lastName);
+    this.profileForm = new FormGroup({
+      firstName,
+      lastName
+    });
+  }
+
 Validating Reactive Forms
 --------------------------------
+we used error class and ng if to validate the form 
+first created this is component
+ ngOnInit() {
+    this.firstName = new FormControl(this.authService.currentUser.firstName, Validators.required);
+    this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
+    this.profileForm = new FormGroup({
+      firstName: this.firstName,
+      lastName: this.lastName
+    });
+  }
+  
+  then the profile form was used in html
+  then form group, ngclass and ngif were added
+   <form [formGroup]="profileForm"
+   
+   <div class="form-group"
+           [ngClass]="{'error':
+    !validateFirstName()
+    }">
+
+        <label for="firstName">First Name:</label>
+        <em *ngIf="!validateFirstName()">Required</em>
+        <input formControlName="firstName"
+   
 
 Using Multople Validators in Ractive Forms
 -----------------------------------------------

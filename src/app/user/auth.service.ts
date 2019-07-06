@@ -3,19 +3,24 @@ import { IUser } from './user.model';
 
 @Injectable()
 export class AuthService {
-    currentUser: IUser;
-    loginUser(userName: string, password: string) {
-        this.currentUser = {
-            id: 1,
-            userName,
-            firstName: 'John',
-            lastName: 'papa'
+  currentUser: IUser;
+  loginUser(userName: string, password: string) {
+    this.currentUser = {
+      id: 1,
+      userName,
+      firstName: 'John',
+      lastName: 'papa'
 
-        };
-    }
+    };
+  }
 
-    isAuthenticated() {
-        return !!this.currentUser;
+  isAuthenticated() {
+    return !!this.currentUser;
 
-    }
+  }
+
+  updateCurrentUser(firstname: string, lastName: string) {
+    this.currentUser.firstName = firstname;
+    this.currentUser.lastName = lastName;
+  }
 }
