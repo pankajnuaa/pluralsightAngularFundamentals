@@ -7,11 +7,12 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventListResolver
+  EventListResolver,
+  DurationPipe
 } from './events/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.components';
-import { ToastrSrvice } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/errors.component';
@@ -19,6 +20,11 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details';
+import { SessionListComponent } from './events/event-details/session-list-component';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
+
+// declare let toastr: Toastr = window['toastr'];
+declare let toastr: Toastr;
 
 
 @NgModule({
@@ -30,7 +36,10 @@ import { CreateSessionComponent } from './events/event-details';
     EventDetailsComponent,
     Error404Component,
     CreateEventComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent,
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,7 @@ import { CreateSessionComponent } from './events/event-details';
   ],
   providers: [
     EventService,
-    ToastrSrvice,
+    { provide: TOASTR_TOKEN, useValue: toastr },
     EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',

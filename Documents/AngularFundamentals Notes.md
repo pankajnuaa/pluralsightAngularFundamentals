@@ -560,3 +560,100 @@ Diving Deeper into Reactive Forms
 
 Creating Custome Validators
 -----------------------------------
+
+
+
+Communicating between Components
+================================
+
+
+Passing Dat a into a child Component
+-------------------------------------
+passing data from one component to another 
+In parent component
+<session-list [sessions]="event?.sessions"></session-list>
+
+In child component i.e. session-list
+export class SessionListComponent {
+    @Input() sessions: ISession;
+}
+
+and display in html
+
+
+Passing data out of child component
+------------------------------------
+
+
+Reusing components with content projection
+============================================
+change t he content based on the need of the application 
+
+agenda 
+- Content Projection 
+- Multiple slot content projection 
+
+
+
+
+Content Projection 
+-----------------------
+here we created collapsible-well component so the div can be collapsed and we can get info from the other component
+
+Multiple slot content projection
+----------------------------------
+here we used two attribute to create header and body for the session component
+
+
+Displaying with Pipes
+=========================
+display data with pipes
+
+agenda 
+built-in pipes
+Custom pipes
+filtering data
+sort data
+
+
+pipes is used for formatting 
+
+using built-in pipes
+------------------------
+
+problem - name of events are as presented in data
+
+
+creating a custom pipe
+--------------------------
+
+we used custom used pipe 'duration' and used it 
+
+sortring and filtering overview
+-------------------------
+
+
+
+creating a filtering display
+----------------------------
+
+filtering Data
+-------------------
+
+sorting Data
+---------------
+
+
+
+understanding angular's dependency Injection
+=============================================
+
+Creating Directives and Advanced Components in Angular
+===================================================
+
+More Components and Custom Validators
+===================================
+
+Communicating with server using HTTP, Observables and RX
+====================================================
+
