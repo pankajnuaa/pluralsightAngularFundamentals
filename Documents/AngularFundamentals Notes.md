@@ -651,9 +651,47 @@ understanding angular's dependency Injection
 Creating Directives and Advanced Components in Angular
 ===================================================
 
+agenda
+- Modal Component
+	- Routing the same Component 
+	- DOM Manipulation
+	- Using the @ViewChild Decorator
+Directive
+	
+	
+Implementing the session search 
+------------------------------
+
+Adding JQuery
+-----------------
+
+Creating a Modal Component
+---------------------------
+
+Fixing Template Parse Errors
+-------------------------------
+
+Creating Directives - The Trigger Directive
+----------------------------------------------
+
+Binding an ID
+--------------------
+
+Routing to the same component
+---------------------------------
+
+using the @ViewChild Decorator
+----------------------------------
+
+Creating settings on Components
+---------------------------------
+
+
 More Components and Custom Validators
 ===================================
 
 Communicating with server using HTTP, Observables and RX
 ====================================================
+
+
 

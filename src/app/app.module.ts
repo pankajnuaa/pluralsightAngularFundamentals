@@ -22,9 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details';
 import { SessionListComponent } from './events/event-details/session-list-component';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { JQ_TOKEN, TOASTR_TOKEN, } from './common/index';
 
 // declare let toastr: Toastr = window['toastr'];
 declare let toastr: Toastr;
+const jQuery = window.$;
 
 
 @NgModule({
